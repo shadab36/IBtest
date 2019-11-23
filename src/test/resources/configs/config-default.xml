@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  
+  <parameter name="Browser" value="Chrome-Windows" />
+  <parameter name="Headless" value="false" />
+
+  <parameter name="EnvironmentName" value="preprod" />
+  <parameter name="BaseURL" value="https://p-prestaging.intelligencebank.com/auth/?login=1" />
+  <parameter name="SiteName" value="preprodsel.intelligencebank.com" />
+
+  <listeners>
+    <listener class-name="com.intelligencebank.platform.Listeners"/>
+    <listener class-name="com.intelligencebank.utils.ExtentReporterNG"/>
+  </listeners>
+
+  <test name="Validating User login">
+    <classes>
+      <class name="com.intelligencebank.cucumberOptions.TestRunner"/>
+    </classes>
+  </test>
+</suite>  

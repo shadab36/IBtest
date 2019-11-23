@@ -1,0 +1,17 @@
+stages:
+  - build
+  - test
+
+maven-build:
+  tags:
+    - AutoTest1
+  stage: build
+  script: "mvn compile"
+  
+run-test:
+  tags:
+    - AutoTest1
+  stage: test
+  script: "mvn test -DsuiteXmlFile=configs/config-gitlab.xml -Dcucumber.options='--tags \"(@smoke or @sanity or @overnight) and not @ignore and not @manual\"'"
+  
+  
